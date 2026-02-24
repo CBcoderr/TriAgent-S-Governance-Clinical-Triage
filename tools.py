@@ -5,7 +5,10 @@ import re
 import os
 
 # 🔥 SET THIS TO YOUR TESSERACT INSTALL PATH (Windows)
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+tesseract_path = os.getenv("TESSERACT_PATH")
+
+if tesseract_path:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 
 def extract_text_from_pdf(pdf_path):
